@@ -1,0 +1,24 @@
+<!-- <search></search> -->
+
+<div class="search">
+    <input type="text" [(ngModel)]="searchText" (keyup)="searched($event)">
+    <!-- <button (click)="searchMovies()">Search</button> -->
+</div>
+
+<div class="list">
+
+    <div *ngFor="let movie of moviesList" class="card">
+        <div class="thumbnail">
+            <img src = {{movie.thumnailImg}} width="150px" height="260px">
+        </div>
+        <div class="name">
+            {{movie.title}}
+        </div>
+    </div>
+</div>
+
+<div class="pagination">
+    <button [disabled]="page==1" (click)="paginate(page-1)">Prev</button>
+    <input [(ngModel)]="page" disabled>
+    <button (click)="paginate(page+1)">Next</button>
+</div>
